@@ -1,4 +1,3 @@
-from replit import clear
 from art import logo
 print(logo)
 def add(n1, n2):
@@ -36,7 +35,6 @@ def calculator():
     to_continue = input(f"Type 'y' to continue with {result}, or type 'n' to start a new calculation: ")
     first_number = result
     if to_continue.lower() == "n":
-      clear()
       calculator()
 
 calculator()
