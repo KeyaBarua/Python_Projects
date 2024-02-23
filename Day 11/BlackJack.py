@@ -25,7 +25,6 @@ def calc_points(card_list):
     return total_points - 10
   return total_points
 
-
 def compare_score(user, computer):
   """Compares the scores of the user and computer and decides the winner"""
   if user == computer:
