@@ -1,3 +1,6 @@
+import random
+from art import logo
+from replit import clear
 cards = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
 card_points = {
   'A': 11, '2': 2, '3':3, '4':4, '5': 5, 
@@ -22,6 +25,24 @@ def calc_points(card_list):
     return total_points - 10
   return total_points
 
+def compare_score(user, computer):
+  """Compares the scores of the user and computer and decides the winner"""
+  if user == computer:
+    return "🐲 Draw"
+  elif user == 0:
+    return "♠️ Blackjack! You win."
+  elif computer == 0:
+    return "♠️ Computer hit a Blackjack! You lose."
+  elif user > 21:
+    return "😟 You went over. You lose!"
+  elif computer > 21:
+    return "💯 Computer went over. You win!"
+  elif user > computer:
+    return "😍 You win!"
+  else:
+    return "⛔ Computer wins!"
+  
+  
 def playBlackJack():
   """Starts the BlackJack game"""
   print(logo)
@@ -51,13 +72,25 @@ def playBlackJack():
           is_game_over = True
           break
       break
-
+      
+  # After the user finishes, the computer plays the game
+  while computer_score != 0 and computer_score < 17:
+    computer_cards.append(deal_cards())
+    computer_score = calc_points(computer_cards)
+      
   print(f"\n\nYour final hand: {user_cards}, current score: {user_score}")
   print(f"Computer's final hand: {computer_cards}, computer's score: {computer_score}\n\n")
 
   print(compare_score(user_score, computer_score))
+  
+  
+
+    
+
 
 # Start
 while input("Do you want to play a game of BlackJack? Type 'y' or 'n': ").lower() == 'y':
     clear()
     playBlackJack()
+
+print("Good Bye!")
