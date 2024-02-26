@@ -36,10 +36,10 @@ def play_game(attempts):
       continue_game = False
     elif compare_numbers(secret_number, guess) > 0:
       attempts -= 1
-      print("Too High!")
+      print("Too High! Guess again.")
     else:
       attempts -= 1
-      print("Too Low!")
+      print("Too Low! Guess again.")
 
     if attempts == 0:
       print(f"You ran out of attempts. The correct number is {secret_number}.")
