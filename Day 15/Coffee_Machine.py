@@ -48,8 +48,9 @@ def display_report():
 
 coffee_machine_running = True
 profit = 0.0
+print("The coffee machine is ON!")
 while coffee_machine_running:
-    order = input("What would you like? (espresso/latte/cappuccino): ")
+    order = input("What would you like? (espresso/latte/cappuccino) or turn off the machine: ")
     if order.lower() == "espresso" or order.lower() == "latte" or order.lower() == "cappuccino":
         # Get the amount of milk, water and coffee needed.
         milk_needed, coffee_needed, water_needed = ingredients_needed(order)
